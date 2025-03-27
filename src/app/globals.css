@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=DynaPuff:wght@600&display=swap');
 
 :root {
   --background: #ffffff;
@@ -22,5 +23,22 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Delius", "DynaPuff", cursive, system-ui;
+  font-weight: 900;
+  font-style: bold;
+}
+
+
+.header {
+  background-color: rgb(43, 82, 84);
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.footer {
+  background-color: rgb(20, 19, 19);
+  color: white;
+  padding: 16px;
+  text-align: center;
 }
