@@ -5,7 +5,7 @@ import Image from "next/image";
 //TEXTO E IMAGENES DE LAS REVIEWS
 const reviews = [
   {
-    text: "Satisfactorio.",
+    text: "Bueno.",
     author: "Negro contento",
     img: "/cliente1.jpg",
   },
