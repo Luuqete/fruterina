@@ -25,27 +25,32 @@ const reviews = [
 
 export default function ReviewsSection() {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleNavigation = (newIndex:any) => {
+  const handleNavigation = (newIndex:any, newDirection : 'left'|'right') => {
     if (isAnimating) return;
     setIsAnimating(true);
-    
+
+    setDirection(newDirection);
+
+    setIndex(newIndex);
     // Temporizador para reiniciar animación
     setTimeout(() => {
-      setIndex(newIndex);
+      
       setIsAnimating(false);
-    }, 300); // Coincide con la duración de la animación (0.6s)
+    }, 500); // Coincide con la duración de la animación (0.6s)
   };
+
 
   const prevReview = () => {
     const newIndex = index === 0 ? reviews.length - 1 : index - 1;
-    handleNavigation(newIndex);
+    handleNavigation(newIndex,'left');
   };
 
   const nextReview = () => {
     const newIndex = index === reviews.length - 1 ? 0 : index + 1;
-    handleNavigation(newIndex);
+    handleNavigation(newIndex,'right');
   };
 
   //ACA TERMINA EL JAVASCRIPT. HTML TIME 
@@ -101,7 +106,7 @@ export default function ReviewsSection() {
               &#9664;
             </button>
 
-              <div className={`review-card ${isAnimating ? 'slide-out' : ''}`}
+              <div className={`review-card ${isAnimating ? `slide-in-${direction}` : ''}`}
         key={index}>
                 <div className="review-image-container">
                   <Image
