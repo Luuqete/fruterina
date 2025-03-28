@@ -6,7 +6,7 @@ import Image from "next/image";
 const reviews = [
   {
     text: "Bueno.",
-    author: "Negro contento",
+    author: "NIcolás GGAleano",
     img: "/cliente1.jpg",
   },
   {
@@ -25,13 +25,27 @@ const reviews = [
 
 export default function ReviewsSection() {
   const [index, setIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleNavigation = (newIndex) => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    
+    // Temporizador para reiniciar animación
+    setTimeout(() => {
+      setIndex(newIndex);
+      setIsAnimating(false);
+    }, 300); // Coincide con la duración de la animación (0.6s)
+  };
 
   const prevReview = () => {
-    setIndex((prevIndex) => (prevIndex === 0 ? reviews.length - 1 : prevIndex - 1));
+    const newIndex = index === 0 ? reviews.length - 1 : index - 1;
+    handleNavigation(newIndex);
   };
 
   const nextReview = () => {
-    setIndex((prevIndex) => (prevIndex === reviews.length - 1 ? 0 : prevIndex + 1));
+    const newIndex = index === reviews.length - 1 ? 0 : index + 1;
+    handleNavigation(newIndex);
   };
 
   //ACA TERMINA EL JAVASCRIPT. HTML TIME 
@@ -87,21 +101,22 @@ export default function ReviewsSection() {
               &#9664;
             </button>
 
-            <div className="review-card slide-in">
-              <div className="review-image-container">
-                <Image
-                  src={reviews[index].img}
-                  alt={reviews[index].author}
-                  width={150}
-                  height={150}
-                  className="review-image"
-                />
+              <div className={`review-card ${isAnimating ? 'slide-out' : ''}`}
+        key={index}>
+                <div className="review-image-container">
+                  <Image
+                    src={reviews[index].img}
+                    alt={reviews[index].author}
+                    width={150}
+                    height={150}
+                    className="review-image"
+                  />
+                </div>
+                <div className="review-text">
+                  <p>"{reviews[index].text}"</p>
+                  <p className="review-author">- {reviews[index].author}</p>
+                </div>
               </div>
-              <div className="review-text">
-                <p>"{reviews[index].text}"</p>
-                <p className="review-author">- {reviews[index].author}</p>
-              </div>
-            </div>
 
             <button className="arrow right" onClick={nextReview}>
               &#9654;
