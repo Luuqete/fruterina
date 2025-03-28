@@ -27,7 +27,7 @@ export default function ReviewsSection() {
   const [index, setIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleNavigation = (newIndex) => {
+  const handleNavigation = (newIndex:any) => {
     if (isAnimating) return;
     setIsAnimating(true);
     
