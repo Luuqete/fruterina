@@ -1,5 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:ital,wght@0,100..900;1,100..900&family=VT323&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Delius&family=DynaPuff:wght@600&display=swap');
 
 :root {
   --background: #ffffff;
@@ -9,8 +10,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,9 +22,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Delius", "DynaPuff", cursive, system-ui;
-  font-weight: 900;
-  font-style: bold;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 1000;
+  font-style: italic;
+  font-size: 1.3rem;
+
 }
 
 
@@ -48,7 +49,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Delius", cursive;
 }
 
 .main-content {
@@ -68,22 +68,45 @@ body {
   position: relative;
   width: 100%;
   height: 400px;
+  overflow: hidden;
 }
 
 .banner-image {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
 }
 
 .banner-text {
   position: absolute;
   left: 10%;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 30%;
   color: white;
-  font-size: 2rem;
+  font-size:8rem;
   font-weight: bold;
-  max-width: 500px;
+  text-shadow: 2px 2px 4px black;
 }
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 1s ease-out;
+}
+
 
 /* Servicios */
 .services {
@@ -94,18 +117,30 @@ body {
 }
 
 .services-container {
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
 .service-card {
-  background: #f3f3f3;
+  background: #e1bfbf;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.20); 
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); 
 }
 
 /* Reseñas */
@@ -116,24 +151,96 @@ body {
 }
 
 .reviews-container {
-  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  max-width: 800px;
   margin: auto;
+  position: relative;
 }
 
+/* Tarjeta de la reseña */
 .review-card {
+  display: flex;
+  align-items: center;
   background: rgb(212, 203, 233);
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+/* Contenedor de la imagen */
+.review-image-container {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* Imagen del cliente */
+.review-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+}
+
+/* Texto de la reseña */
+.review-text {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  margin-left: -20px;
+  border-radius: 10px;
+  text-align: left;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Autor */
 .review-author {
   font-weight: bold;
   text-align: right;
+  margin-top: 10px;
 }
 
-/* Imagen Final */
+/* Flechas de navegación */
+.arrow {
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+/* Animación de deslizamiento */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Imagen Final Seccion 4*/
 .final-image {
   background-color: rgb(135, 177, 229);
   position: relative;
@@ -148,7 +255,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   color:  rgb(0, 0, 0);
-  font-size: 24px;
+  font-size: 2rem;
   
 }
 

@@ -1,7 +1,41 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
-import "./globals.css";
 
-export default function Home() {
+//TEXTO E IMAGENES DE LAS REVIEWS
+const reviews = [
+  {
+    text: "Satisfactorio.",
+    author: "Negro contento",
+    img: "/cliente1.jpg",
+  },
+  {
+    text: "Maravilloso.",
+    author: "Mujer calmada",
+    img: "/cliente2.jpg",
+  },
+  {
+    text: "Esplendido",
+    author: "Viejo que no come frutas",
+    img: "/cliente3.jpg",
+  },
+];
+
+//FUNCION PARA IR ROTANDO ENTRE REVIEWS
+
+export default function ReviewsSection() {
+  const [index, setIndex] = useState(0);
+
+  const prevReview = () => {
+    setIndex((prevIndex) => (prevIndex === 0 ? reviews.length - 1 : prevIndex - 1));
+  };
+
+  const nextReview = () => {
+    setIndex((prevIndex) => (prevIndex === reviews.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  //ACA TERMINA EL JAVASCRIPT. HTML TIME 
+
   return (
     <div className="page-container">
       {/* Header */}
@@ -20,8 +54,9 @@ export default function Home() {
             objectFit="cover"
             className="banner-image"
           />
-          <div className="banner-text">
-            <h2>Bienvenido a nuestra página</h2>
+          <div className="banner-overlay"></div>
+          <div className="banner-text fade-in-left">
+            <h2>Fruterina</h2>
           </div>
         </section>
 
@@ -48,17 +83,31 @@ export default function Home() {
         <section className="reviews">
           <h2>Reseñas de nuestros clientes</h2>
           <div className="reviews-container">
-            <div className="review-card">
-              <p>"Excelente servicio y atención."</p>
-              <p className="review-author">- Cliente 1</p>
+            <button className="arrow left" onClick={prevReview}>
+              &#9664;
+            </button>
+
+            <div className="review-card slide-in">
+              <div className="review-image-container">
+                <Image
+                  src={reviews[index].img}
+                  alt={reviews[index].author}
+                  width={150}
+                  height={150}
+                  className="review-image"
+                />
+              </div>
+              <div className="review-text">
+                <p>"{reviews[index].text}"</p>
+                <p className="review-author">- {reviews[index].author}</p>
+              </div>
             </div>
-            <div className="review-card">
-              <p>"Totalmente recomendado."</p>
-              <p className="review-author">- Cliente 2</p>
-            </div>
+
+            <button className="arrow right" onClick={nextReview}>
+              &#9654;
+            </button>
           </div>
         </section>
-
         {/* Imagen Final */}
         <section className="final-image">
           {/* <Image
