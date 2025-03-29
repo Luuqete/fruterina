@@ -65,15 +65,25 @@ body {
 
 /* Banner */
 .banner {
-  position: relative;
+  position: relative; /* Fija el banner en la ventana */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 200px;
+  height: 200px; /* Altura del banner */
+  z-index: -1; /* Capa inferior */
   overflow: hidden;
 }
 
 .banner-image {
-  opacity: 0.9;
+  position: fixed;
+  height: 450px;
+  width: 100%;
+  top: 25px;
+  left: 0;
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  will-change: transform;
 }
+
 
 .banner-overlay {
   position: absolute;
@@ -272,14 +282,23 @@ body {
 
 /* Imagen Final Seccion 4*/
 .final-image {
-  background-color: rgb(135, 177, 229);
+  /* background-color: rgb(135, 177, 229);*/
   position: relative;
   width: 100%;
   height: 300px;
+  z-index: -1;
+}
+
+.final-image-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
 }
 
 .final-text {
-  position: absolute;
+  position: relative;
   width: 100%;
   text-align: center;
   top: 50%;
@@ -307,6 +326,11 @@ body {
     overflow: hidden;
   }
   
+  .banner-image{
+    height: 600px;
+    top: 0;
+  }
+
   .banner-text{
     font-size: 8rem;
   }

@@ -66,13 +66,11 @@ export default function ReviewsSection() {
       <main className="main-content">
         {/* Banner */}
         <section className="banner">
-          <Image
+           <img
             src="/banner.jpg"
-            alt="Banner"
-            layout="fill"
-            objectFit="cover"
             className="banner-image"
-          />
+            alt="Banner"    
+          /> 
           <div className="banner-overlay"></div>
           <div className="banner-text fade-in-left">
             <h2>Fruterina</h2>
@@ -130,6 +128,7 @@ export default function ReviewsSection() {
         </section>
         {/* Imagen Final */}
         <section className="final-image">
+          <div className="final-image-overlay"></div>
           {/* <Image
             src="/imagen-final.jpg"
             alt="Imagen final"
