@@ -5,18 +5,18 @@ import Image from "next/image";
 //TEXTO E IMAGENES DE LAS REVIEWS
 const reviews = [
   {
-    text: "Bueno.",
-    author: "NIcolás GGAleano",
+    text: "¡Los mejores productos de la zona! Siempre fresco y a precios increíbles. ¡Recomiendo 100%!",
+    author: "Nicolás Vegga",
     img: "/cliente1.jpg",
   },
   {
-    text: "Maravilloso.",
-    author: "Mujer calmada",
+    text: "Me encanta la variedad y la atención amable. ¡Nunca defraudan!",
+    author: "Laura Martínez",
     img: "/cliente2.jpg",
   },
   {
-    text: "Esplendido",
-    author: "Viejo que no come frutas",
+    text: "Calidad de siempre, como antes. ¡La verdulería de confianza del barrio!",
+    author: "Manuel Hernandez",
     img: "/cliente3.jpg",
   },
 ];
@@ -144,6 +144,14 @@ export default function ReviewsSection() {
 
       {/* Footer */}
       <footer className="footer">
+        <section className="footer-links-container">
+          <div className="footer-social-media-liks"></div>
+          <ul className="footer-links-list">
+            <li><a href="#">Términos y condicones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Política de Devoluciones</a></li>
+          </ul>
+        </section>
         <p>&copy; 2025 - Luca Stombellini & Marcos Constantino</p>
       </footer>
     </div>
