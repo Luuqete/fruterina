@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 
 //TEXTO E IMAGENES DE LAS REVIEWS
@@ -35,14 +36,12 @@ export default function ReviewsSection() {
     setDirection(newDirection);
 
     setIndex(newIndex);
-    // Temporizador para reiniciar animación
+
     setTimeout(() => {
       
       setIsAnimating(false);
-    }, 500); // Coincide con la duración de la animación (0.6s)
+    }, 500); 
   };
-
-
   const prevReview = () => {
     const newIndex = index === 0 ? reviews.length - 1 : index - 1;
     handleNavigation(newIndex,'left');
@@ -52,6 +51,28 @@ export default function ReviewsSection() {
     const newIndex = index === reviews.length - 1 ? 0 : index + 1;
     handleNavigation(newIndex,'right');
   };
+
+  const [move, setMove] = useState(false);
+  const MoverImagenScroll = () => {
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const porcentajeScroll = (scrollTop / alturaTotal) * 100;
+
+            setMove(porcentajeScroll > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll); // Limpieza del evento
+    }, []);
+
+  };
+
+MoverImagenScroll();
 
   //ACA TERMINA EL JAVASCRIPT. HTML TIME 
 
@@ -68,7 +89,7 @@ export default function ReviewsSection() {
         <section className="banner">
            <img
             src="/banner.jpg"
-            className="banner-image"
+            className={`banner-image ${move ? 'moved' : ''}`}
             alt="Banner"    
           /> 
           <div className="banner-overlay"></div>
@@ -79,7 +100,7 @@ export default function ReviewsSection() {
 
         {/* Sección de Tarjetas */}
         <section className="services">
-          <h2>Nuestros Servicios</h2>
+          <h2 className="section-title">Nuestros Servicios</h2>
           <div className="services-container">
             <div className="service-card">
               <h3>Servicio 1</h3>
@@ -98,7 +119,7 @@ export default function ReviewsSection() {
 
         {/* Sección de Reseñas */}
         <section className="reviews">
-          <h2>Reseñas de nuestros clientes</h2>
+          <h2 className="section-title reviews-title">Reseñas de nuestros clientes</h2>
           <div className="reviews-container">
             <button className="arrow left" onClick={prevReview}>
               &#9664;
@@ -136,9 +157,12 @@ export default function ReviewsSection() {
             objectFit="cover"
             className="final-image-background"
           /> */}
+          
           <div className="final-text">
             <h2>¡Gracias por visitarnos!</h2>
+            
           </div>
+          
         </section>
       </main>
 
