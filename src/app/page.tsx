@@ -70,9 +70,9 @@ export default function ReviewsSection() {
         return () => window.removeEventListener("scroll", handleScroll); // Limpieza del evento
     }, []);
 
-  };
-
+};
 MoverImagenScroll();
+
 
   //ACA TERMINA EL JAVASCRIPT. HTML TIME 
 
@@ -103,16 +103,23 @@ MoverImagenScroll();
           <h2 className="section-title">Nuestros Servicios</h2>
           <div className="services-container">
             <div className="service-card">
-              <h3>Servicio 1</h3>
-              <p>Descripción breve del servicio.</p>
+              <img src="./deliveryIcon.png" className="service-icon" alt="" />
+              <h3>Devlivery sin cargo</h3>
+              <p>Para clientes dentro de la zona de reparto.</p>
+              <button className="service-button">Conocer más</button>
             </div>
             <div className="service-card">
-              <h3>Servicio 2</h3>
-              <p>Descripción breve del servicio.</p>
+              <img src="./fruitsIcon.png" className="service-icon" alt="" />
+              <h3>Packs de smoothies</h3>
+              <p>Una selección de las mejores frutas congeladas ¡listas para tu licuado!.</p>
+              <button className="service-button">Conocer más</button>
             </div>
             <div className="service-card">
-              <h3>Servicio 3</h3>
-              <p>Descripción breve del servicio.</p>
+              <img src="./moneyIcon.png" className="service-icon" alt="" />
+              <h3>Métodos de pago varios</h3>
+              <p>Podés pagar con todas las billeteras virtuales. Pagando en efectivo, te hacemos 10% de descuento</p>
+              
+              <button className="service-button">Conocer más</button>
             </div>
           </div>
         </section>

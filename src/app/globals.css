@@ -63,7 +63,7 @@ body {
 
 /* Header */
 .header {
-  background-color: rgb(167, 55, 55);
+  background-color: #cc0000;
   color: white;
   text-align: center;
   padding: 20px;
@@ -91,7 +91,7 @@ body {
 }
 
 .banner-image.moved{
- top: 35px;
+ margin-top: 55px;
 }
 
 .banner-overlay {
@@ -145,21 +145,43 @@ body {
 
 .service-card {
   background: #e1bfbf;
-  padding: 20px;
+  padding: 10px 15px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card h3{
+  font-size: 1.65rem;
+  font-weight: bold;
 }
 
 .service-card:hover {
   transform: scale(1.20); 
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); 
+}
+
+.service-icon{
+  width: 100px;
+}
+
+.service-button{
+  background-color: rgb(167, 55, 55);
+  transition: all 800ms;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.service-button:hover{
+  background-color: #bb0000;
+  transform: scale(1.1);
+  
 }
 
 /* Reseñas */
@@ -355,7 +377,7 @@ body {
   }
 
   .banner-image.moved{
-    top: 0;
+    margin-top: 0;
    }
 
   .banner-text{
