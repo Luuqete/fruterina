@@ -26,7 +26,7 @@ body {
   font-weight: 1000;
   font-style: italic;
   font-size: 1.3rem;
-
+  user-select: none;
 }
 
 .header {
@@ -34,6 +34,20 @@ body {
   color: white;
   padding: 16px;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header h1{
+  transition: all 0.5s;
+}
+
+.header h1:hover{
+    transform: scale(1.1);
+    color: #000000;
+    cursor: default;
 }
 
 .footer {
@@ -320,7 +334,12 @@ body {
 
 /* Imagen Final Seccion 4*/
 .contact {
-  /* background-color: rgb(135, 177, 229);*/
+   background-image: url('../../public/finalImage.jpeg');
+   background-size: cover;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+     /*background: linear-gradient(to bottom, #b04040, transparent);*/
+  height: 100%;
   position: relative;
   width: 100%;
   height: 200px;
@@ -330,6 +349,7 @@ body {
   align-content: center;
   justify-content: flex-start;
   align-items: center;
+
 }
 
 .social-media-icon{
@@ -342,6 +362,7 @@ body {
 }
 
 .contact-overlay {
+  display: none;
   position: absolute;
   top: 0;
   width: 100%;
@@ -493,6 +514,11 @@ body {
 
   .contact{
     height: 400px;
+    background: transparent;
+  }
+
+  .contact-overlay{
+    display: inline;
   }
 
   .final-text{
@@ -503,7 +529,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 25vw;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
   
 
@@ -512,7 +538,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     height: 100%;
 

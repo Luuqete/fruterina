@@ -80,11 +80,18 @@ MoverImagenScroll();
     <div className="page-container">
       {/* Header */}
       <header className="header">
-        <h1>Header</h1>
+       <h1 className="text-2xl font-bold">
+          <a href="#">Fruterina</a>
+        </h1>
+        <nav className="space-x-4">
+          <a href="#start" className="hover:underline">Inicio</a>
+          <a href="#services" className="hover:underline">Servicios</a>
+          <a href="#contact" className="hover:underline">Contacto</a>
+        </nav>
       </header>
 
       {/* Contenido principal */}
-      <main className="main-content">
+      <main className="main-content" id="start">
         {/* Banner */}
         <section className="banner">
            <img
@@ -99,7 +106,7 @@ MoverImagenScroll();
         </section>
 
         {/* Sección de Tarjetas */}
-        <section className="services">
+        <section className="services" id="services">
           
           <h2 className="section-title">Nuestros Servicios</h2>
           <div className="services-container">
@@ -158,7 +165,7 @@ MoverImagenScroll();
         </section>
         {/* Imagen Final */}
      
-        <section className="contact">
+        <section className="contact" id="contact">
           <div className="contact-overlay"></div>
           
           {/* <Image
@@ -172,10 +179,10 @@ MoverImagenScroll();
           <div className="final-text">
             <h2>¡Comunicate con nosotros!</h2>
             <ul className="final-text-social-media-links">
-              <li><a href="#"><img src="./whatsappIcon.png" className="social-media-icon" alt="Whatsapp" /></a></li>
-              <li><a href="#"><img src="./instagramIcon.png" className="social-media-icon"  alt="Instagram" /></a></li>
-              <li><a href="#"><img src="./facebookIcon.png" className="social-media-icon"  alt="Facebook" /></a></li>
-              <li><a href="#"><img src="./locationIcon.png" className="social-media-icon"  alt="Direccion" /></a></li>
+              <li><a href="#contact"><img src="./whatsappIcon.png" className="social-media-icon" alt="Whatsapp" /></a></li>
+              <li><a href="#contact"><img src="./instagramIcon.png" className="social-media-icon"  alt="Instagram" /></a></li>
+              <li><a href="#contact"><img src="./facebookIcon.png" className="social-media-icon"  alt="Facebook" /></a></li>
+              <li><a href="#contact"><img src="./locationIcon.png" className="social-media-icon"  alt="Direccion" /></a></li>
             </ul>
           </div>
           
@@ -183,13 +190,13 @@ MoverImagenScroll();
       </main>
 
       {/* Footer */}
-      <footer className="footer">
+      <footer className="footer" id="footer">
         <section className="footer-links-container">
           <div className="footer-social-media-liks"></div>
           <ul className="footer-links-list">
-            <li><a className="footer-link" href="#">Términos y condicones</a></li>
-            <li><a className="footer-link" href="#">Política de privacidad</a></li>
-            <li><a className="footer-link" href="#">Política de Devoluciones</a></li>
+            <li><a className="footer-link hover:underline" href="#footer">Términos y condicones</a></li>
+            <li><a className="footer-link hover:underline" href="#footer">Política de privacidad</a></li>
+            <li><a className="footer-link hover:underline" href="#footer">Política de Devoluciones</a></li>
           </ul>
         </section>
         <p>&copy; 2025 - Luca Stombellini & Marcos Constantino</p>
