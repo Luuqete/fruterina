@@ -94,12 +94,13 @@ MoverImagenScroll();
           /> 
           <div className="banner-overlay"></div>
           <div className="banner-text fade-in-left">
-            <h2>Fruterina</h2>
+            <h2 className="main-title">Fruterina</h2>
           </div>
         </section>
 
         {/* Sección de Tarjetas */}
         <section className="services">
+          
           <h2 className="section-title">Nuestros Servicios</h2>
           <div className="services-container">
             <div className="service-card">
@@ -126,6 +127,7 @@ MoverImagenScroll();
 
         {/* Sección de Reseñas */}
         <section className="reviews">
+
           <h2 className="section-title reviews-title">Reseñas de nuestros clientes</h2>
           <div className="reviews-container">
             <button className="arrow left" onClick={prevReview}>
@@ -155,19 +157,26 @@ MoverImagenScroll();
           </div>
         </section>
         {/* Imagen Final */}
-        <section className="final-image">
-          <div className="final-image-overlay"></div>
+     
+        <section className="contact">
+          <div className="contact-overlay"></div>
+          
           {/* <Image
             src="/imagen-final.jpg"
             alt="Imagen final"
             layout="fill"
             objectFit="cover"
-            className="final-image-background"
+            className="contact-background"
           /> */}
           
           <div className="final-text">
-            <h2>¡Gracias por visitarnos!</h2>
-            
+            <h2>¡Comunicate con nosotros!</h2>
+            <ul className="final-text-social-media-links">
+              <li><a href="#"><img src="./whatsappIcon.png" className="social-media-icon" alt="Whatsapp" /></a></li>
+              <li><a href="#"><img src="./instagramIcon.png" className="social-media-icon"  alt="Instagram" /></a></li>
+              <li><a href="#"><img src="./facebookIcon.png" className="social-media-icon"  alt="Facebook" /></a></li>
+              <li><a href="#"><img src="./locationIcon.png" className="social-media-icon"  alt="Direccion" /></a></li>
+            </ul>
           </div>
           
         </section>
@@ -178,9 +187,9 @@ MoverImagenScroll();
         <section className="footer-links-container">
           <div className="footer-social-media-liks"></div>
           <ul className="footer-links-list">
-            <li><a href="#">Términos y condicones</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-            <li><a href="#">Política de Devoluciones</a></li>
+            <li><a className="footer-link" href="#">Términos y condicones</a></li>
+            <li><a className="footer-link" href="#">Política de privacidad</a></li>
+            <li><a className="footer-link" href="#">Política de Devoluciones</a></li>
           </ul>
         </section>
         <p>&copy; 2025 - Luca Stombellini & Marcos Constantino</p>
