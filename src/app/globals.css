@@ -373,6 +373,9 @@ body {
   gap: 10px;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
 }
 
 
@@ -507,10 +510,12 @@ body {
   .final-text-social-media-links {
     padding: 10px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 10px;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+
   }
   
 .footer{
