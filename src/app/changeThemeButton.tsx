@@ -7,6 +7,7 @@ const ChangeThemeButton: React.FC = () => {
         if (typeof window !== 'undefined') {
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           setTheme(prefersDark ? 'dark' : 'light');
+          toggleTheme();
         }
       }, []);
 
